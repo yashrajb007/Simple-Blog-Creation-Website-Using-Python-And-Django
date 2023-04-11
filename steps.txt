@@ -1,0 +1,154 @@
+1] Created Folder DJBLOG 
+2] Create Virtual Environment in  folder
+3] Check Stability And Deployment
+4] install Django
+5] create project pydjblog
+6] go to bootswatch and take bootswatch.min.css
+7] create blog app
+8] Go to settings.py file and In INSTALLED_APPS = [] list add 'blog' entry
+9]Now go to sites ursl.py file and in import add include as follows -
+10]from django.urls import path,include
+11]and in urlspatterns add below entry
+12]path('',include('blog.urls'))
+13]Go to blog app-> add urls.py file in it
+14]Now go to views.py file and add home function in it as follows -
+15]# Create your views here.
+def home(request):
+    return render(request,'home.html')
+16]Now go to blog app->uerls.py file and add below code in it
+17]from django.urls import path
+from . import views
+
+urlpatterns = [
+  path('',views.home)
+]
+18]Now go to blog app and create new folder with name templates in it
+19]and add home.html in templates folder
+20]go to root folder of project and create templates folder in it
+21]Now in root->templates -> create new file -> base.html
+22]Now go to projects setting.py file
+23]and in Templates List go To DIRS list and in DIRS List add below entry
+24]'DIRS': [
+            os.path.join(BASE_DIR,'templates')
+        ],
+25]Now go to root directory -> templates -> base.html file  and add below code in it
+26]{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PyDJ Blog Home</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/custom.css'%}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Py DJ Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Register</a>
+                </li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+    <br />
+    <br />
+    <div class="container">
+        <div class="row">
+            <!-- Main Work Area -->
+
+            <div class="col-sm-8">
+
+                {% block content%}
+
+
+
+                {% endblock %}
+            </div>
+            <!-- Right Nav Bar -->
+            <div class="col-sm-4">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        Latest Posts
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        Python Posts
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action disabled">
+                        Django Posts
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action disabled">
+                        HTML5 Posts
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action disabled">
+                        CSS Posts
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action disabled">
+                        Bootstrap Posts
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Py Dj Blog CopyRight@2023</p>
+    </div>
+
+    <script type="text/javascript" src="{% static 'assets/js/jquery-3.4.1.slim.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/popper.min.js'%}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+
+</body>
+
+</html>
+27]Now go to blog app-> templates-> home.html and add below code in it
+28]{% extends 'base.html'%}
+
+{% block content%}
+<h4>Welcome to Python Django Blog!!!!</h4>
+<br />
+<br />
+
+{% endblock %}
+29]Also go into root directory -> static-> assets->css-> custom.css and set background color as per your headers background color
+30]
+31]
+32]
+33]
+34]
+35]
+36]
+37]
+38]
+39]
+40]
+
